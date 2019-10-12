@@ -5,4 +5,5 @@
     <string name="loginPasswordPlaceholder">Password</string>
     <string name="loginButtonText">Login</string>
     <string name="loginButtonSignUpText">Sign up</string>
+    <string name="logout">Logout</string>
 </resources>
