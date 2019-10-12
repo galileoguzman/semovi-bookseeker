@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BookSeeker</string>
     <string name="loginViewTitle">Login</string>
+    <string name="loginEmailPlaceholder">Your email</string>
+    <string name="loginPasswordPlaceholder">Password</string>
+    <string name="loginButtonText">Login</string>
+    <string name="loginButtonSignUpText">Sign up</string>
 </resources>
