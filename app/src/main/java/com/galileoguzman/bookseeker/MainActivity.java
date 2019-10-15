@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity {
         dataProcessor = new DataProcessor(this);
 
         lvBooks = (ListView) findViewById(R.id.lvBooks);
-
+        lvBooks.setDivider(null);
 
         apiService = ApiUtils.getAPIService();
         getBooks();
