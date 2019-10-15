@@ -11,13 +11,14 @@ import android.widget.EditText;
 import com.galileoguzman.bookseeker.models.ApiToken;
 import com.galileoguzman.bookseeker.services.APIService;
 import com.galileoguzman.bookseeker.utils.ApiUtils;
+import com.galileoguzman.bookseeker.utils.BaseActivity;
 import com.galileoguzman.bookseeker.utils.DataProcessor;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private EditText etEmail;
     private EditText etPassword;
@@ -53,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     private void doLoginRequest(String email, String password) {
         // ---- request
 
+        // showActivityIndicator()
+
         apiService.doLogin(email, password).enqueue(new Callback<ApiToken>() {
             @Override
             public void onResponse(Call<ApiToken> call, Response<ApiToken> response) {
@@ -60,13 +63,18 @@ public class LoginActivity extends AppCompatActivity {
                     ApiToken token = response.body();
                     initializeUserSession(token);
                 }
+
+                // showMessage("text from backend")
             }
 
             @Override
             public void onFailure(Call<ApiToken> call, Throwable t) {
 
+
             }
         });
+
+        // closeActivityIndicator()
     }
 
     private void initializeUserSession(ApiToken token) {

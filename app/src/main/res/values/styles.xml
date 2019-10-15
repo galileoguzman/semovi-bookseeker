@@ -9,4 +9,10 @@
     </style>
 
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
 </resources>
