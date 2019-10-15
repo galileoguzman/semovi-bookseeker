@@ -7,16 +7,22 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.galileoguzman.bookseeker.R;
+import com.galileoguzman.bookseeker.services.APIService;
 
 public class BaseActivity extends AppCompatActivity {
 
     public ProgressDialog loader;
+    public APIService apiService;
+    public DataProcessor dataProcessor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         loader = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
+
+        dataProcessor = new DataProcessor(this);
+        apiService = ApiUtils.getAPIService();
     }
 
     public void showMessage(String message) {

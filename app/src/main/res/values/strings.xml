@@ -8,4 +8,11 @@
     <string name="logout">Logout</string>
     <string name="loading">Loading</string>
     <string name="loginErrorMessage">There is an error with your credentials.</string>
+    <string name="addBookNamePlaceholder">Name</string>
+    <string name="addBookDescriptionPlaceholder">Description</string>
+    <string name="addBookLatPlaceholder">Latitude</string>
+    <string name="addBookLongPlaceholder">Longitude</string>
+    <string name="addBookButtonText">Create</string>
+    <string name="AddBookCreatedMessage">Book created</string>
+    <string name="addBookError">Something wrong happened!</string>
 </resources>

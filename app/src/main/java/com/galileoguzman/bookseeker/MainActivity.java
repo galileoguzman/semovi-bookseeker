@@ -15,6 +15,7 @@ import com.galileoguzman.bookseeker.services.APIService;
 import com.galileoguzman.bookseeker.utils.ApiUtils;
 import com.galileoguzman.bookseeker.utils.BaseActivity;
 import com.galileoguzman.bookseeker.utils.DataProcessor;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,9 @@ import retrofit2.Response;
 
 public class MainActivity extends BaseActivity {
 
-    private APIService apiService;
-    private DataProcessor dataProcessor;
+
     private ListView lvBooks;
+    private FloatingActionButton fab;
     private BooksAdapter booksAdapter;
 
     private ArrayList<Book> books;
@@ -37,14 +38,22 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dataProcessor = new DataProcessor(this);
-
         lvBooks = (ListView) findViewById(R.id.lvBooks);
         lvBooks.setDivider(null);
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewBookPressed();
+            }
+        });
 
-        apiService = ApiUtils.getAPIService();
         getBooks();
+    }
 
+    private void addNewBookPressed() {
+        Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
+        startActivity(intent);
     }
 
     public void btnLogoutPressed(View view) {
