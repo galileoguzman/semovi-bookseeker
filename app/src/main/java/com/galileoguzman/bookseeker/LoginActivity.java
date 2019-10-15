@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivity {
     private void doLoginRequest(String email, String password) {
         // ---- request
 
-        // showActivityIndicator()
+        showLoaderIndicator(getResources().getString(R.string.loading));
 
         apiService.doLogin(email, password).enqueue(new Callback<ApiToken>() {
             @Override
@@ -64,17 +64,17 @@ public class LoginActivity extends BaseActivity {
                     initializeUserSession(token);
                 }
 
-                // showMessage("text from backend")
+                showMessage(getResources().getString(R.string.loginErrorMessage));
             }
 
             @Override
             public void onFailure(Call<ApiToken> call, Throwable t) {
 
+                closeLoaderIndicator();
 
             }
         });
 
-        // closeActivityIndicator()
     }
 
     private void initializeUserSession(ApiToken token) {
@@ -84,6 +84,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void goToMainActivity() {
+
+        closeLoaderIndicator();
+
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
